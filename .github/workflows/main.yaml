@@ -18,8 +18,8 @@ env:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 20  # Add timeout to prevent infinite runs
-    
+    timeout-minutes: 20
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -37,6 +37,7 @@ jobs:
         run: npm run build
         env:
           CI: true
+          NODE_ENV: production
 
       - name: List build output
         run: |
@@ -58,12 +59,11 @@ jobs:
             --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
             --query "{State:state,UserId:possibleOutboundIpAddresses}" -o json
 
-      # Add step to stop the web app before deployment
       - name: Stop Azure Web App
         run: |
           echo "Stopping Web App..."
           az webapp stop --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCE_GROUP }}
-          sleep 10  # Give it time to stop
+          sleep 10
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
@@ -71,28 +71,32 @@ jobs:
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           package: .
-          clean: true  # Add this to clean up before deployment
+          clean: true
 
-      # Add step to start the web app after deployment
       - name: Start Azure Web App
-        if: always()  # Run this even if deployment failed
+        if: always()
         run: |
           echo "Starting Web App..."
           az webapp start --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCE_GROUP }}
+          sleep 10  # Give it time to start up
 
       - name: Check Deployment Logs
         if: always()
         run: |
           echo "Fetching deployment logs..."
-          az webapp log deployment show --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCE_GROUP }}
+          az webapp log deployment show \
+            --name ${{ env.AZURE_WEBAPP_NAME }} \
+            --resource-group ${{ env.AZURE_RESOURCE_GROUP }}
           
-          echo "Fetching web app logs..."
-          az webapp log tail --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCE_GROUP }
+          echo "Fetching recent web app logs..."
+          az webapp log show \
+            --name ${{ env.AZURE_WEBAPP_NAME }} \
+            --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+            --lines 100
 
       - name: Azure Logout
         if: always()
-        run: |
-          az logout
+        run: az logout
 
       - name: Update deployment status
         if: always()
