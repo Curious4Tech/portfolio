@@ -11,7 +11,7 @@ export default function Home() {
         </div>
         <nav className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="text-xl font-bold">Azizou GNANKPE</h1>
+            <h1 className="text-xl font-bold">Azizou GNANKPE (Curious4tech)</h1>
             <div className="space-x-6">
               <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">About</a>
               <a href="#skills" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Skills</a>
