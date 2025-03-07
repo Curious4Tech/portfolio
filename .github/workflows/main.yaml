@@ -39,60 +39,91 @@ jobs:
           CI: true
           NODE_ENV: production
 
-      - name: List build output
+      # Prepare deployment package
+      - name: Prepare package
         run: |
-          echo "Listing build output files:"
-          ls -la
-          echo "Listing .next directory:"
-          ls -la .next || echo ".next directory not found"
+          # Create deployment package directory
+          mkdir -p deploy-package
+          
+          # Copy necessary files
+          cp -r .next deploy-package/
+          cp -r public deploy-package/
+          cp package*.json deploy-package/
+          cp next.config.js deploy-package/
+          
+          # Create web.config for Azure
+          echo '<?xml version="1.0" encoding="utf-8"?>
+          <configuration>
+            <system.webServer>
+              <handlers>
+                <add name="iisnode" path="node_modules/next/dist/bin/next" verb="*" modules="iisnode" />
+              </handlers>
+              <rewrite>
+                <rules>
+                  <rule name="Next.js" stopProcessing="true">
+                    <match url="/*" />
+                    <conditions logicalGrouping="MatchAll">
+                      <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+                    </conditions>
+                    <action type="Rewrite" url="node_modules/next/dist/bin/next" />
+                  </rule>
+                </rules>
+              </rewrite>
+              <iisnode nodeProcessCommandLine="node" />
+            </system.webServer>
+          </configuration>' > deploy-package/web.config
 
       - name: Azure Login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Check Azure Web App Status
+      # Configure Azure Web App settings
+      - name: Configure Web App
         run: |
-          echo "Checking Web App status..."
-          az webapp show \
+          # Update web app settings
+          az webapp config set \
             --name ${{ env.AZURE_WEBAPP_NAME }} \
             --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
-            --query "{State:state,UserId:possibleOutboundIpAddresses}" -o json
+            --linux-fx-version "NODE|20-lts" \
+            --node-version "20-lts"
 
-      - name: Stop Azure Web App
-        run: |
-          echo "Stopping Web App..."
-          az webapp stop --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCE_GROUP }}
-          sleep 10
+          # Configure app settings
+          az webapp config appsettings set \
+            --name ${{ env.AZURE_WEBAPP_NAME }} \
+            --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+            --settings \
+              SCM_DO_BUILD_DURING_DEPLOYMENT=false \
+              WEBSITE_RUN_FROM_PACKAGE=0 \
+              NODE_ENV=production \
+              PORT=8080
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
-        id: deploy
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          package: .
-          clean: true
+          package: deploy-package
+          slot-name: production
 
-      - name: Start Azure Web App
-        if: always()
+      - name: Check Deployment Status
         run: |
-          echo "Starting Web App..."
-          az webapp start --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCE_GROUP }}
-          sleep 10  # Give it time to start up
-
-      - name: Check Deployment Logs
-        if: always()
-        run: |
-          echo "Fetching deployment logs..."
-          az webapp log deployment show \
-            --name ${{ env.AZURE_WEBAPP_NAME }} \
-            --resource-group ${{ env.AZURE_RESOURCE_GROUP }}
+          echo "Waiting for deployment to complete..."
+          sleep 30
           
-          echo "Fetching recent web app logs..."
+          # Check web app status
+          STATUS=$(az webapp show \
+            --name ${{ env.AZURE_WEBAPP_NAME }} \
+            --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+            --query state -o tsv)
+          
+          echo "Web App Status: $STATUS"
+          
+          # Get recent logs
+          echo "Recent logs:"
           az webapp log show \
             --name ${{ env.AZURE_WEBAPP_NAME }} \
             --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
-            --lines 100
+            --lines 50
 
       - name: Azure Logout
         if: always()
