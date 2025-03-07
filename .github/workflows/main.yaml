@@ -49,7 +49,7 @@ jobs:
           cp -r .next deploy-package/
           cp -r public deploy-package/
           cp package*.json deploy-package/
-          cp next.config.js deploy-package/
+          cp next.config.ts deploy-package/
           
           # Create web.config for Azure
           echo '<?xml version="1.0" encoding="utf-8"?>
