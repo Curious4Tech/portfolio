@@ -85,8 +85,8 @@ jobs:
           az webapp config set \
             --name ${{ env.AZURE_WEBAPP_NAME }} \
             --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
-            --linux-fx-version "NODE|20-lts" \
-            --node-version "20-lts"
+            --linux-fx-version "NODE|20" \
+            --node-version "20"
 
           # Configure app settings
           az webapp config appsettings set \
