@@ -1,9 +1,8 @@
 name: Portfolio CI/CD
 
-# Add permissions at the top level
 permissions:
   contents: read
-  issues: write    # Add permission to create issues
+  issues: write
   actions: read
 
 on:
@@ -13,7 +12,8 @@ on:
 
 env:
   NODE_VERSION: '20.x'
-  AZURE_WEBAPP_NAME: 'curios4tech-portfolio-fsgyfkfuf6cbb3cg'
+  AZURE_WEBAPP_NAME: 'curios4tech-portfolio'  # Updated to match Azure portal name
+  AZURE_RESOURCE_GROUP: 'curious4tech-portfolio-rg'
 
 jobs:
   build-and-deploy:
@@ -45,11 +45,18 @@ jobs:
         run: npm run build
         env:
           CI: true
+          NEXT_PUBLIC_SITE_URL: https://curios4tech-portfolio-fsgyfkfuf6cbb3cg.canadacentral-01.azurewebsites.net
 
       - name: Azure Login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # Add step to verify web app exists and show details
+      - name: Verify Web App
+        run: |
+          echo "Checking Web App details..."
+          az webapp show --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCE_GROUP }} || echo "Web App not found"
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
@@ -57,17 +64,34 @@ jobs:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           package: .
 
+      - name: Configure Web App
+        if: success()
+        run: |
+          az webapp config set \
+            --name ${{ env.AZURE_WEBAPP_NAME }} \
+            --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+            --linux-fx-version "NODE|20-lts"
+
+          az webapp config appsettings set \
+            --name ${{ env.AZURE_WEBAPP_NAME }} \
+            --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+            --settings \
+            WEBSITE_RUN_FROM_PACKAGE=0 \
+            SCM_DO_BUILD_DURING_DEPLOYMENT=true \
+            NEXT_PUBLIC_SITE_URL=https://curios4tech-portfolio-fsgyfkfuf6cbb3cg.canadacentral-01.azurewebsites.net
+
       - name: Azure Logout
         run: |
           az logout
         if: always()
+
       - name: Update deployment status
         if: always()
         run: |
           echo "Deployment Status: ${{ job.status }}"
           echo "Completed at: $(date -u)"
           echo "Workflow run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-      # Modified notification step with better error handling
+
       - name: Notify on failure
         if: failure()
         uses: actions/github-script@v7
