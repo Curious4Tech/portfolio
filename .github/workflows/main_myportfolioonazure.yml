@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read #This is required for actions/checkout
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -29,8 +29,16 @@ jobs:
           npm run build --if-present
           npm run test --if-present
 
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+      # Create deployment package without node_modules and development files
+      - name: Create deployment package
+        run: |
+          # Remove development files and directories
+          rm -rf node_modules/
+          rm -rf .git/
+          rm -rf tests/
+          rm -rf *.test.js
+          # Only zip necessary files
+          zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -45,9 +53,9 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
-
+      id-token: write
+      contents: read
+    timeout-minutes: 20
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
@@ -56,6 +64,9 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
+      
+      - name: Install production dependencies
+        run: npm install --production
       
       - name: Login to Azure
         uses: azure/login@v2
