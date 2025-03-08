@@ -55,7 +55,6 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    timeout-minutes: 20
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
