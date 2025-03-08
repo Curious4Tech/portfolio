@@ -11,7 +11,7 @@ export default function Home() {
         </div>
         <nav className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="text-xl font-bold">Azizou GNANKPE (Curious4tech)</h1>
+            <h1 className="text-xl font-bold">Your name</h1>
             <div className="space-x-6">
               <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">About</a>
               <a href="#skills" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300">Skills</a>
@@ -35,7 +35,7 @@ export default function Home() {
             priority
           />
           <h1 className="text-5xl font-bold mb-4 animate-fade-in">
-          I&apos;m <span className="text-blue-600 dark:text-blue-400">Azizou GNANKPE</span>
+          I&apos;m <span className="text-blue-600 dark:text-blue-400">Your name</span>
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
             Microsoft MVP  || Cloud and Systems Engineer  ||  Azure AI
@@ -92,7 +92,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold mb-6 text-blue-600 dark:text-blue-400">Professional Journey 🚀</h3>
                 <div className="space-y-4">
                   <p className="text-gray-600 dark:text-gray-300 font-semibold">
-                    Currently working as a Cloud and Systems Engineer at ExecutiveFlow AI
+                    Currently working as a [job role] at [company name]
                   </p>
                   <ul className="list-none space-y-3">
                     {[
@@ -868,7 +868,7 @@ export default function Home() {
   <div className="max-w-6xl mx-auto px-4">
     <div className="flex flex-col items-center justify-center space-y-2">
       <p className="text-gray-600 dark:text-gray-300 font-medium">
-        © {new Date().getFullYear()} Azizou GNANKPE
+        © {new Date().getFullYear()} Your Full name
       </p>
       <p className="text-sm text-gray-500 dark:text-gray-400">
         All rights reserved.
