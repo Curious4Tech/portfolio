@@ -27,7 +27,7 @@ export default function Home() {
       <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-all duration-500">
         <div className="max-w-6xl mx-auto px-4 py-20 text-center">
           <Image
-            src="/your-photo.jpg"
+            src="/Linked.png"
             alt="Profile Picture"
             width={150}
             height={150}
@@ -40,9 +40,6 @@ export default function Home() {
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
             Microsoft MVP  || Cloud and Systems Engineer  ||  Azure AI
           </p>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-          Microsoft MVP specializing in Azure solutions and AI implementations.
-         </p>
           <button className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300 transform hover:scale-105">
             Get In Touch
           </button>
@@ -62,7 +59,7 @@ export default function Home() {
               <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
                 <h3 className="text-2xl font-bold mb-6 text-blue-600 dark:text-blue-400">My Story</h3>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  My passion for technology runs deep – starting from childhood curiosity to becoming a dedicated tech enthusiast.  I&apos;m driven by exploring cutting-edge technologies and contributing to the tech community. My journey in technology began when I was just a kid, sparking a lifelong fascination with innovation and digital advancement.
+                My passion for technology began in childhood, evolving into a relentless drive to explore cutting-edge innovations and actively contribute to the tech community.
                 </p>
               </div>
 
@@ -100,9 +97,10 @@ export default function Home() {
                   <ul className="list-none space-y-3">
                     {[
                       "Design and implement cloud infrastructure solutions",
+                      "Cloud security and cost optimization",
+                      "Cloud deployment automation and migration",
                       "Optimize system performance and reliability",
-                      "Work with cutting-edge AI technologies",
-                      "Drive digital transformation initiatives"
+                      "Work with cutting-edge AI technologies",                    
                     ].map((item, index) => (
                       <li key={index} className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
                         <span className="text-blue-600 dark:text-blue-400">→</span>
@@ -119,7 +117,7 @@ export default function Home() {
                   {[
                     { emoji: "🎓", text: "Education: Master's Degree in Electrical and Computer Science" },
                     { emoji: "💼", text: "Current Role: Cloud and Systems Engineer" },
-                    { emoji: "🌍", text: "Location: Currently in France but ready to relocate Worldwide" },
+                    { emoji: "🌍", text: "Location: Currently in France but I am opened to relocate" },
                     { emoji: "🎯", text: "Focus: Cloud, Systems and Azure AI" }
                   ].map((fact, index) => (
                     <li key={index} className="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
@@ -135,7 +133,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-<section id="skills" className="min-h-screen flex items-center justify-center py-20 bg-white dark:bg-gray-900">
+  <section id="skills" className="min-h-screen flex items-center justify-center py-20 bg-white dark:bg-gray-900">
   <div className="max-w-6xl mx-auto px-4">
     <h2 className="text-3xl font-bold mb-12 text-center relative">
       Skills & Expertise
@@ -251,7 +249,7 @@ export default function Home() {
             </li>
             <li className="flex items-center gap-2">
               <span className="text-blue-600">→</span>
-              GitLab CI/CD
+              Azure DevOps
             </li>
           </ul>
         </div>
@@ -330,6 +328,7 @@ export default function Home() {
               <li>Prometheus</li>
               <li>Grafana</li>
               <li>Wazuh</li>
+              <li>Zabbix</li>
             </ul>
           </div>
           <div>
@@ -337,7 +336,6 @@ export default function Home() {
             <ul className="space-y-2">
               <li>Git</li>
               <li>GitHub</li>
-              <li>GitLab</li>
               <li>Bitbucket</li>
             </ul>
           </div>
@@ -354,7 +352,7 @@ export default function Home() {
             <h4 className="font-bold mb-4">Automation</h4>
             <ul className="space-y-2">
               <li>Ansible</li>
-              <li>Chef</li>
+              <li>Bicep</li>
               <li>Terraform</li>
             </ul>
           </div>
@@ -363,367 +361,449 @@ export default function Home() {
     </div>
   </div>
 </section>
-
-      {/* Certifications Section */}
-      <section id="certifications" className="min-h-screen flex items-center justify-center py-20 bg-gray-50 dark:bg-gray-800">
-        {/* Your existing certifications content */}
-        <section id="certifications" className="py-20 bg-gray-50 dark:bg-gray-800">
+{/* Certifications Section */}
+<section id="certifications" className="py-20 bg-gray-50 dark:bg-gray-800">
   <div className="max-w-6xl mx-auto px-4">
-    <h2 className="text-3xl font-bold mb-8 text-center">Certifications</h2>
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      
-      {/* Microsoft MVP */}
-      <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-        <div className="p-6">
-          <h3 className="font-bold mb-2">Microsoft MVP</h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            Most Valuable Professional recognition for exceptional technical community leadership and expertise sharing.
-          </p>
-          <p className="text-gray-600 dark:text-gray-300 mb-2">Active until: 2023</p>
-          <a 
-            href="https://mvp.microsoft.com/MvpSearch" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
-          >
-            Verify →
-          </a>
+    <div className="mb-16 text-center">
+      <h2 className="text-4xl font-bold mb-4">Certifications & Awards</h2>
+      <div className="w-24 h-1 bg-blue-600 dark:bg-blue-400 mx-auto rounded"></div>
+      <p className="mt-4 text-gray-600 dark:text-gray-300">Professional certifications and recognition</p>
+    </div>
+    
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Microsoft MVP - Updated with hover effects and badge styling */}
+      <div className="group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div className="p-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient">
+          <div className="bg-white dark:bg-gray-900 p-5">
+            <div className="flex justify-between items-start">
+              <div className="relative w-16 h-16 mb-4 group-hover:scale-110 transition-transform">
+                <Image
+                  src="/mvp-logo.png"
+                  alt="Microsoft MVP"
+                  layout="fill"
+                  objectFit="contain"
+                  className="rounded-lg"
+                />
+              </div>
+              <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-medium px-3 py-1 rounded-full shadow-md">
+                Microsoft
+              </span>
+            </div>
+            <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              Microsoft MVP in Cloud & Data Center Management
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm line-clamp-3">
+              Most Valuable Professional recognition for exceptional technical community leadership and expertise sharing.
+            </p>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                <span className="text-emerald-500 dark:text-emerald-400 text-sm font-medium">Active</span>
+              </div>
+              <a 
+                href="https://mvp.microsoft.com/en-US/MVP/profile/e3f10e00-6b8a-4581-8bac-7b11b7a122f1" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 group-hover:translate-x-1 transition-all"
+              >
+                Verify 
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Azure Solutions Architect Expert */}
-      <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-        <div className="p-6">
-          <h3 className="font-bold mb-2">Microsoft Certified: Azure Solutions Architect Expert</h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
+  
+      {/* Azure Solutions Architect - Updated with hover effects and badge styling */}
+      <div className="group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div className="p-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient">
+          <div className="bg-white dark:bg-gray-900 p-5">
+            <div className="flex justify-between items-start">
+              <div className="relative w-16 h-16 mb-4 group-hover:scale-110 transition-transform">
+                <Image
+                  src="/azure-expert10.png"
+                  alt="Microsoft MVP"
+                  layout="fill"
+                  objectFit="contain"
+                  className="rounded-lg"
+                />
+              </div>
+              <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-medium px-3 py-1 rounded-full shadow-md">
+              Microsoft
+              </span>
+            </div>
+            <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+             Azure Solutions Architect Expert
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm line-clamp-3">
+              
             Expert-level certification for designing and implementing comprehensive Azure solutions.
-          </p>
-          <p className="text-gray-600 dark:text-gray-300 mb-2">Active until: 2023</p>
-          <a 
-            href="https://learn.microsoft.com/api/credentials/share/en-us/Clouder-2/15787E1E56A8EBBB?sharingId=studentamb_363945" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
-          >
-            Verify →
-          </a>
+            </p>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                <span className="text-emerald-500 dark:text-emerald-400 text-sm font-medium">Active</span>
+              </div>
+              <a 
+                href="https://learn.microsoft.com/api/credentials/share/en-us/curious4tech/15787E1E56A8EBBB?sharingId=studentamb_363945" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 group-hover:translate-x-1 transition-all"
+              >
+                Verify 
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Azure Administrator */}
-      <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-        <div className="p-6">
-          <h3 className="font-bold mb-2">Microsoft Certified: Azure Administrator</h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  
+      {/* Aure Certified AI Engineer - Updated with hover effects and badge styling */}
+
+      <div className="group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div className="p-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient">
+          <div className="bg-white dark:bg-gray-900 p-5">
+            <div className="flex justify-between items-start">
+              <div className="relative w-16 h-16 mb-4 group-hover:scale-110 transition-transform">
+                <Image
+                  src="/ai-expert.png"
+                  alt="Microsoft MVP"
+                  layout="fill"
+                  objectFit="contain"
+                  className="rounded-lg"
+                />
+              </div>
+              <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-medium px-3 py-1 rounded-full shadow-md">
+              Microsoft
+              </span>
+            </div>
+            <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+             Azure AI Engineer
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm line-clamp-3">
+              
+            Specialized in Designing and Implementing an Azure AI solution using Azure AI services, Azure AI Search, and Azure Open AI.
+            </p>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                <span className="text-emerald-500 dark:text-emerald-400 text-sm font-medium">Active</span>
+              </div>
+              <a 
+                href="https://learn.microsoft.com/api/credentials/share/en-us/curious4tech/ACBA351DB3E4F730?sharingId=studentamb_363945" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 group-hover:translate-x-1 transition-all"
+              >
+                Verify 
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div className="p-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient">
+          <div className="bg-white dark:bg-gray-900 p-5">
+            <div className="flex justify-between items-start">
+              <div className="relative w-16 h-16 mb-4 group-hover:scale-110 transition-transform">
+                <Image
+                  src="/azure-admin.png"
+                  alt="Microsoft MVP"
+                  layout="fill"
+                  objectFit="contain"
+                  className="rounded-lg"
+                />
+              </div>
+              <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-medium px-3 py-1 rounded-full shadow-md">
+              Microsoft 
+              </span>
+            </div>
+            <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+             Azure Administrator Associate
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm line-clamp-3">
+              
             Expert in implementing, monitoring, and maintaining Microsoft Azure solutions.
-          </p>
-          <p className="text-gray-600 dark:text-gray-300 mb-2">Active until: 2023</p>
-          <a 
-            href="https://learn.microsoft.com/api/credentials/share/en-us/Clouder-2/338C240C7645D262?sharingId=studentamb_363945" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
-          >
-            Verify →
-          </a>
+            </p>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                <span className="text-emerald-500 dark:text-emerald-400 text-sm font-medium">Active</span>
+              </div>
+              <a 
+                href="https://learn.microsoft.com/api/credentials/share/en-us/curious4tech/338C240C7645D262?sharingId=studentamb_363945" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 group-hover:translate-x-1 transition-all"
+              >
+                Verify 
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Azure AI Engineer */}
-      <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-        <div className="p-6">
-          <h3 className="font-bold mb-2">Microsoft Certified: Azure AI Engineer</h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            Specialized in building and deploying AI solutions using Azure AI services.
-          </p>
-          <p className="text-gray-600 dark:text-gray-300 mb-2">Active until: 2023</p>
-          <a 
-            href="https://learn.microsoft.com/api/credentials/share/en-us/Clouder-2/ACBA351DB3E4F730?sharingId=studentamb_363945" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
-          >
-            Verify →
-          </a>
-        </div>
-      </div>
+      {/* GCP Associate Cloud Engineer  - Updated with hover effects and badge styling */}
 
-      {/* GCP Associate Cloud Engineer */}
-      <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-        <div className="p-6">
-          <h3 className="font-bold mb-2">GCP Certified: Associate Cloud Engineer</h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
+      <div className="group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div className="p-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient">
+          <div className="bg-white dark:bg-gray-900 p-5">
+            <div className="flex justify-between items-start">
+              <div className="relative w-16 h-16 mb-4 group-hover:scale-110 transition-transform">
+                <Image
+                  src="/gcp-engineer.png"
+                  alt="Microsoft MVP"
+                  layout="fill"
+                  objectFit="contain"
+                  className="rounded-lg"
+                />
+              </div>
+              <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-medium px-3 py-1 rounded-full shadow-md">
+                Google
+              </span>
+            </div>
+            <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            GCP Associate Cloud Engineer
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm line-clamp-3">
+              
             Proficient in deploying applications and managing solutions on Google Cloud Platform.
-          </p>
-          <p className="text-gray-600 dark:text-gray-300 mb-2">Active until: 2023</p>
-          <a 
-            href="https://cloud.google.com/certification/cloud-engineer" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
-          >
-            Verify →
-          </a>
+            </p>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                <span className="text-emerald-500 dark:text-emerald-400 text-sm font-medium">Active</span>
+              </div>
+              <a 
+                href="https://learn.microsoft.com/api/credentials/share/en-us/curious4tech/ACBA351DB3E4F730?sharingId=studentamb_363945" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 group-hover:translate-x-1 transition-all"
+              >
+                Verify 
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Microsoft Applied Skills */}
-      <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-        <div className="p-6">
-          <h3 className="font-bold mb-2">Microsoft Applied Skills: Administer Active Directory</h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
+  {/* Microsoft Applied Skills - Updated with hover effects and badge styling */}
+
+  <div className="group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div className="p-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient">
+          <div className="bg-white dark:bg-gray-900 p-5">
+            <div className="flex justify-between items-start">
+              <div className="relative w-16 h-16 mb-4 group-hover:scale-110 transition-transform">
+                <Image
+                  src="/adds-applied.png"
+                  alt="Microsoft MVP"
+                  layout="fill"
+                  objectFit="contain"
+                  className="rounded-lg"
+                />
+              </div>
+              <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-medium px-3 py-1 rounded-full shadow-md">
+              Microsoft
+              </span>
+            </div>
+            <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            Microsoft Applied Skills
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm line-clamp-3">
+              
             Practical expertise in managing Active Directory Domain Services (AD DS).
-          </p>
-          <p className="text-gray-600 dark:text-gray-300 mb-2">Awarded: 2023</p>
-          <a 
-            href="https://learn.microsoft.com/api/credentials/share/en-us/Clouder-2/1FE384F42664FD35?sharingId=studentamb_363945" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
-          >
-            Verify →
-          </a>
+            </p>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center space-x-2">
+                <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                <span className="text-emerald-500 dark:text-emerald-400 text-sm font-medium">Active</span>
+              </div>
+              <a 
+                href="https://learn.microsoft.com/api/credentials/share/en-us/curious4tech/1FE384F42664FD35?sharingId=studentamb_363945" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 group-hover:translate-x-1 transition-all"
+              >
+                Verify 
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       
     </div>
   </div>
 </section>
-      </section>
-
       {/* Projects Section */}
-      <section id="projects" className="min-h-screen flex items-center justify-center py-20 bg-white dark:bg-gray-900">
-        {/* Your existing projects content */}
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">Featured Projects</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Project Card */}
-            <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/project-1.jpg" // Add project image
-                alt="Project 1"
-                width={400}
-                height={300}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="font-bold mb-2">Project Name</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Brief description of the project
-                </p>
-                <div className="flex gap-2">
-                  <a href="#" className="text-blue-600 hover:underline">Details on Github</a>
-                </div>
-              </div>
-            </div>
-            {/* Add more project cards as needed */}
-            <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/project-1.jpg" // Add project image
-                alt="Project 1"
-                width={400}
-                height={300}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="font-bold mb-2">Project Name</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Brief description of the project
-                </p>
-                <div className="flex gap-2">
-                  <a href="#" className="text-blue-600 hover:underline">Details on Github</a>
-                </div>
-              </div>
-            </div>
+<section id="projects" className="py-20 bg-white dark:bg-gray-900">
+  <div className="max-w-6xl mx-auto px-4">
+    <div className="mb-16 text-center">
+      <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
+      <div className="w-24 h-1 bg-blue-600 dark:bg-blue-400 mx-auto rounded"></div>
+      <p className="mt-4 text-gray-600 dark:text-gray-300">Some of my notable works and contributions</p>
+    </div>
 
-            <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/project-1.jpg" // Add project image
-                alt="Project 1"
-                width={400}
-                height={300}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="font-bold mb-2">Project Name</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Brief description of the project
-                </p>
-                <div className="flex gap-2">
-                  <a href="#" className="text-blue-600 hover:underline">Details on Github</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/project-1.jpg" // Add project image
-                alt="Project 1"
-                width={400}
-                height={300}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="font-bold mb-2">Project Name</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Brief description of the project
-                </p>
-                <div className="flex gap-2">
-                  <a href="#" className="text-blue-600 hover:underline">Details on Github</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/project-1.jpg" // Add project image
-                alt="Project 1"
-                width={400}
-                height={300}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="font-bold mb-2">Project Name</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Brief description of the project
-                </p>
-                <div className="flex gap-2">
-                  <a href="#" className="text-blue-600 hover:underline">Details on Github</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/project-1.jpg" // Add project image
-                alt="Project 1"
-                width={400}
-                height={300}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="font-bold mb-2">Project Name</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Brief description of the project
-                </p>
-                <div className="flex gap-2">
-                  <a href="#" className="text-blue-600 hover:underline">Details on Github</a>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/project-1.jpg" // Add project image
-                alt="Project 1"
-                width={400}
-                height={300}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="font-bold mb-2">Project Name</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Brief description of the project
-                </p>
-                <div className="flex gap-2">
-                  <a href="#" className="text-blue-600 hover:underline">Details on Github</a>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/project-1.jpg" // Add project image
-                alt="Project 1"
-                width={400}
-                height={300}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="font-bold mb-2">Project Name</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Brief description of the project
-                </p>
-                <div className="flex gap-2">
-                  <a href="#" className="text-blue-600 hover:underline">Details on Github</a>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/project-1.jpg" // Add project image
-                alt="Project 1"
-                width={400}
-                height={300}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="font-bold mb-2">Project Name</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Brief description of the project
-                </p>
-                <div className="flex gap-2">
-                  <a href="#" className="text-blue-600 hover:underline">Details on Github</a>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/project-1.jpg" // Add project image
-                alt="Project 1"
-                width={400}
-                height={300}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="font-bold mb-2">Project Name</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Brief description of the project
-                </p>
-                <div className="flex gap-2">
-                  <a href="#" className="text-blue-600 hover:underline">Details on Github</a>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/project-1.jpg" // Add project image
-                alt="Project 1"
-                width={400}
-                height={300}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="font-bold mb-2">Project Name</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Brief description of the project
-                </p>
-                <div className="flex gap-2">
-                  <a href="#" className="text-blue-600 hover:underline">Details on Github</a>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/project-1.jpg" // Add project image
-                alt="Project 1"
-                width={400}
-                height={300}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="font-bold mb-2">Project Name</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Brief description of the project
-                </p>
-                <div className="flex gap-2">
-                  <a href="#" className="text-blue-600 hover:underline">Details on Github</a>
-                </div>
-              </div>
-            </div>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Azure AI Project */}
+      <div className="group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div className="relative">
+          <Image
+            src="/windows22.png"
+            alt="Windows Server 2022 Administration Guide"
+            width={400}
+            height={300}
+            className="w-full h-48 object-cover"
+          />
+          <div className="absolute top-0 right-0 p-2">
+            <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">
+              Windows Server
+            </span>
           </div>
         </div>
-      </section>
+        <div className="p-6">
+          <h3 className="font-bold text-xl mb-2">Windows Server 2022 Administration Guide</h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+          A comprehensive guide for Windows Server 2022 administration, covering essential topics from installation to advanced configuration, security hardening, and best practices for enterprise environments.
+        
+          </p>
+          <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">Windows Server</span>
+                  <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">Active Directory</span>
+                  <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">PowerShell</span>
+                  <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">Group Policy</span>
+                  <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">DHCP</span>
+                  <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">DNS</span>
+                  <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">Hyper-V</span>
+                  <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">Security</span>
+          </div>
+          <div className="flex justify-between items-center">
+            <a 
+              href="https://github.com/Curious4Tech/Windows-Server-2022-Administration-Full-Guide"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              View on GitHub
+              <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
 
+      {/* Cloud Infrastructure Project */}
+      <div className="group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div className="relative">
+          <Image
+            src="/azure-functions-cleanup.png"
+            alt="Cloud Infrastructure Project"
+            width={400}
+            height={300}
+            className="w-full h-48 object-cover"
+          />
+          <div className="absolute top-0 right-0 p-2">
+            <span className="bg-cyan-100 text-cyan-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-cyan-900 dark:text-cyan-300">
+              Cloud
+            </span>
+          </div>
+        </div>
+        <div className="p-6">
+          <h3 className="font-bold text-xl mb-2">Azure Functions - Storage and Database Cleanup</h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+          Automated cleanup solution using Azure Functions to manage storage costs and database performance. Handles scheduled removal of archived blobs and cleanup of legacy database records.
+          </p>
+          <div className="flex flex-wrap gap-2 mb-4">
+                <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">Azure Functions</span>
+                <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">Python</span>
+                <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">Azure SQL</span>
+                <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">Blob Storage</span>
+                <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">Azure Function App</span>
+                <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">CRON Jobs</span>
+          </div>
+          <div className="flex justify-between items-center">
+            <a 
+              href="https://github.com/Curious4Tech/storage-database-cleanup-function"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              View on GitHub
+              <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* DevOps Automation Project */}
+      <div className="group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+        <div className="relative">
+          <Image
+            src="/devops-automation.png"
+            alt="DevOps Automation Project"
+            width={400}
+            height={300}
+            className="w-full h-48 object-cover"
+          />
+          <div className="absolute top-0 right-0 p-2">
+            <span className="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-purple-900 dark:text-purple-300">
+              DevOps
+            </span>
+          </div>
+        </div>
+        <div className="p-6">
+          <h3 className="font-bold text-xl mb-2">Azure App Service & GitHub Actions CI/CD Guide</h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+          Comprehensive step-by-step guide for implementing CI/CD pipelines using GitHub Actions to deploy web applications to Azure App Service. Learn automated testing, deployment strategies, and best practices.
+          </p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">GitHub Actions</span>
+            <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">Docker</span>
+            <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">Terraform</span>
+            <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">Python</span>
+            <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">Azure App Service</span>
+          </div>
+          <div className="flex justify-between items-center">
+            <a 
+              href="https://github.com/yourusername/devops-automation"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              View on Medium
+              <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Add more project cards with the same structure... */}
+    </div>
+  </div>
+</section>
       {/* Contact Section */}
 <section id="contact" className="min-h-screen flex items-center justify-center py-20 bg-gray-50 dark:bg-gray-800">
   <div className="max-w-6xl mx-auto px-4 text-center">
