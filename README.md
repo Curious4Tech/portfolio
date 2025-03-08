@@ -96,4 +96,3 @@ For support, please open an issue in the repository or contact [Curious4Tech](ht
 
 ---
 ⭐ Created with ❤️ by Curious4Tech 
->>>>>>> 26452d1f7da5339bbb41768bf41427b68595b9c7
