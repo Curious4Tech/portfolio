@@ -3,7 +3,6 @@
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/0c2f2691-d5be-493b-a0b3-e60c868b21d1" />
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/)
-![GitHub last commit](https://img.shields.io/github/last-commit/Curious4Tech/portfolio)
 ![Azure App Service Status](https://img.shields.io/badge/Azure%20App%20Service-Active-success)
 ## Overview
 
@@ -96,4 +95,4 @@ az webapp create --name your-portfolio --resource-group portfolio-rg --plan port
 For support, please open an issue in the repository or contact [Curious4Tech](https://github.com/Curious4Tech).
 
 ---
-⭐ Created with ❤️ by Curious4Tech | Last Updated: 2025-03-08 13:10:58 UTC
+⭐ Created with ❤️ by Curious4Tech 
