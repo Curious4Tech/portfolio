@@ -1,6 +1,7 @@
 # Create a Free Portfolio Using Azure App Service
 
-![Portfolio Demo](./public/portfolio-demo.png)
+
+![Portfolio Demo](<img width="960" alt="image" src="https://github.com/user-attachments/assets/0c2f2691-d5be-493b-a0b3-e60c868b21d1" />)
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Curious4Tech/portfolio)
