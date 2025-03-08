@@ -1,4 +1,6 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
 name: Build and deploy Node.js app to Azure Web App - myportfolioonazure
 
 on:
@@ -11,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: read #This is required for actions/checkout
 
     steps:
       - uses: actions/checkout@v4
@@ -20,38 +22,21 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-          cache: 'npm' # Enable npm caching for faster installations
 
-      - name: npm install and build
+      - name: npm install, build, and test
         run: |
-          npm clean-install # Use clean-install for reproducible builds
+          npm install
           npm run build --if-present
-        env:
-          CI: true # Ensures CI-specific behavior
+          npm run test --if-present
 
-      # Only run tests if test script exists
-      - name: Run tests
-        run: npm test
-        if: hashFiles('package.json') != '' && contains(toJson(fromJson(readFile('package.json'))), '"test"')
-        continue-on-error: true
-
-      # Create deployment package with only necessary files
-      - name: Create deployment package
-        run: |
-          mkdir deployment
-          cp -r build/* deployment/ 2>/dev/null || :
-          cp -r dist/* deployment/ 2>/dev/null || :
-          cp -r public/* deployment/ 2>/dev/null || :
-          cp package*.json deployment/
-          cd deployment
-          zip -r ../release.zip ./*
+      - name: Zip artifact for deployment
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
           path: release.zip
-          retention-days: 1
 
   deploy:
     runs-on: ubuntu-latest
@@ -60,8 +45,8 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write
-      contents: read
+      id-token: write #This is required for requesting the JWT
+      contents: read #This is required for actions/checkout
 
     steps:
       - name: Download artifact from build job
@@ -70,14 +55,8 @@ jobs:
           name: node-app
 
       - name: Unzip artifact for deployment
-        run: |
-          unzip release.zip -d .
-          rm release.zip
-
-      # Add delay to prevent deployment conflicts
-      - name: Wait for any in-progress deployments
-        run: sleep 30
-        
+        run: unzip release.zip
+      
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -86,13 +65,6 @@ jobs:
           
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B508B69117204150977A00A2792E3C01 }}
 
-      # Stop the web app before deployment
-      - name: Stop Azure WebApp
-        uses: azure/CLI@v1
-        with:
-          inlineScript: |
-            az webapp stop --name myportfolioonazure --resource-group $(az webapp show --name myportfolioonazure --query resourceGroup --output tsv)
-
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
@@ -100,12 +72,4 @@ jobs:
           app-name: 'myportfolioonazure'
           slot-name: 'Production'
           package: .
-          clean: true # Enable clean deployment
-          restart: true # Restart after deployment
-
-      # Start the web app after deployment
-      - name: Start Azure WebApp
-        uses: azure/CLI@v1
-        with:
-          inlineScript: |
-            az webapp start --name myportfolioonazure --resource-group $(az webapp show --name myportfolioonazure --query resourceGroup --output tsv)
+          
